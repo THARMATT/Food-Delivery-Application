@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoURI="mongodb+srv://fooddelivery:delivery@cluster0.xniepwb.mongodb.net/?retryWrites=true&w=majority"
+const mongoURI="mongodb+srv://fooddelivery:delivery@cluster0.xniepwb.mongodb.net/fooddeliveryapp?retryWrites=true&w=majority"
 // const connectToMongo=()=>{
 //     mongoose.connect(mongoURI,()=>{
 //        console.log("connected")
