@@ -27,15 +27,15 @@ const Navbar = () => {
        
       </ul>
       <form className="d-flex" role="search">
-      <Link className="btn btn-success" to="/login">SignUp</Link>
-        <Link className="btn btn-success" to="/login">Login</Link>
+      {/* <Link className="btn btn-success" to="/signup">SignUp</Link>
+        <Link className="btn btn-success" to="/login">Login</Link> */}
 
-{/*         
+        
      {!localStorage.getItem('token')? <form className="d-flex">
       
       <Link className='btn btn-success mx-2' to="/login" role="button">Login</Link>
       <Link className='btn btn-success mx-2'to='/signup' role="button">Signup</Link>
-    </form>: <Link onClick={handleLogout}className='btn btn-primary mx-2'to='/signup' role="button">Logout</Link>} */}
+    </form>: <Link onClick={handleLogout}className='btn btn-success mx-2'to='/signup' role="button">Logout</Link>}
 
       </form>
     </div>

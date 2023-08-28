@@ -9,7 +9,7 @@ const Home = () => {
     <div>
      <Navbar/>
      <Carousel/>
- <div className="d-flex  justify-content-center">  <Card/>
+ <div className="d-flex  justify-content-center flex-wrap">  <Card/>
    <Card/>
    <Card/>
    <Card/></div>

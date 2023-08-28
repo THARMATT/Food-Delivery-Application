@@ -14,6 +14,9 @@ const Carousel = () => {
     <div className="carousel-item">
       <img src="https://i.ytimg.com/vi/ziaFcwgEQg4/maxresdefault.jpg" className="d-block w-100" alt=""/>
     </div>
+    <div className="carousel-item">
+      <img src="https://i.ytimg.com/vi/ziaFcwgEQg4/maxresdefault.jpg" className="d-block w-100" alt=""/>
+    </div>
   </div>
   <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
