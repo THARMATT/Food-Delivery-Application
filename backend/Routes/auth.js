@@ -62,4 +62,7 @@ const authToken=jwt.sign(data,jwtSecret)
         res.json({success:false});
     }
 })
+
+
+
 module.exports=router;

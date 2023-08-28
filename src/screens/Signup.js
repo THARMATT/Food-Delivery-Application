@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import video from '../images/video.mp4'
+import video from '../assets/video2.mp4'
 const Signup = () => {
   const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" })
   let navigate = useNavigate();
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
     const { name, email, password, } = credentials;
     const response = await fetch("http://localhost:5000/api/createuser", {
 

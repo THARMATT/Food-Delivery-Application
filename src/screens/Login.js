@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";// can cross check
 import { Link } from 'react-router-dom';
-import video from '../images/video.mp4'
+import video from '../assets/video1.mp4'
 const Login = (props) => {
   let navigate = useNavigate();
   const [credentials, setCredentials] = useState({ email: "", password: "" })
