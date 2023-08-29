@@ -1,17 +1,45 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-const Card = () => {
+const Card = (props) => {
+
+  // let options= props.option || {}; 
+  // const priceOptions=Object.keys(options)
+
+
+  const handleAddtoCart=()=>{}
   return (
     <div>
-       <div className="container">
-     <div id="card"className="card m-4" style={{"width":"18rem"}}>
-  <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.imcjBhaW2gNfoEhbXX4kpQHaE8%26pid%3DApi&f=1&ipt=86fb7d94fa37c25f365e2364228e590ee1215b4a6913790651e777812540b894&ipo=images" className="card-img-top" alt="..."/>
-  <div className="card-body">
-    <h5 className="card-title">Card title</h5>
-    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
- <Link to="#" className="btn btn-primary">Go somewhere</Link>
-  </div></div>
-</div> 
+      <div className="container">
+        <div id="card" className="card m-4 overflow-hidden" style={{ "width": "18rem" }}>
+          <img src={props.imgSrc} alt="imgava" srcset="" style={{ "height": "12em" ,"width": "18em", objectFit:"fill"}}  className='overflow-hidden'/>
+          {/* <img src="" className="card-img-top" alt="..."/> */}
+          <div className="card-body">
+            <h5 className="card-title">{props.foodName}</h5>
+            {/* <p className="card-text">{props.
+              description}</p> */}
+            <div className='container w-100 p-0' style={{ height: "38px" }}>
+              <select className="m-2 h-100 w-20 bg-success text-black rounded" style={{ select: "#FF0000" }} >
+                {Array.from(Array(6), (e, i) => {
+                  return (
+                    <option key={i + 1} value={i + 1}>{i + 1}</option>)
+                })}
+              </select>
+              <select className="m-2 h-100 w-20 bg-success text-black rounded" style={{ select: "#FF0000" }} >
+                {/* {priceOptions.map((data) => {
+                return <option key={data} value={data}>{data}</option>
+              })} */}
+              <option value="half">half</option>
+              <option value="full">full</option>
+              </select>
+              <div className=' d-inline ms-2 h-100 w-20 fs-5' >
+                total price
+                {/* ₹{finalPrice}/- */}
+              </div>
+            </div>
+<hr />
+            <Link to="#" className="btn btn-success " onClick={handleAddtoCart}>Add to Cart</Link>
+          </div></div>
+      </div>
     </div>
   )
 }

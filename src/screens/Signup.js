@@ -22,8 +22,8 @@ const Signup = () => {
     const json = await response.json();
     console.log(json);
     if (json.success) {
-      // redirect and sasve authtoken
-      localStorage.setItem("token", json.authtoken);
+      // redirect and sasve authauthtoken
+      localStorage.setItem("authtoken", json.authauthtoken);
       navigate("/");
     }
     else {
