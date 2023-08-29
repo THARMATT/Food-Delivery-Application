@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
+import Modal from '../Modal';
+import { useCart, useDispatchCart } from '../Components/ContextReducer';
+import Cart from '../screens/Cart';
 const Navbar = () => {
+ 
+  const[cartView,setCartView]=useState(false)
+  let data = useCart();
   let navigate = useNavigate();
   const handleLogout=()=>{
     localStorage.removeItem('authtoken');
@@ -36,10 +42,11 @@ const Navbar = () => {
       
       <Link className='btn btn-success mx-2' to="/login" role="button">Login</Link>
       <Link className='btn btn-success mx-2'to='/signup' role="button">Signup</Link>
-    </div>: <div>
-    <Link  className='btn btn-success mx-2'to='/myorders' role="button">Cart</Link>
+    </div>: <div className='d-flex'>
+    <div ><Link  className='btn btn-success mx-2'to='/myorders' role="button"  onClick={()=>{setCartView(true)}}>Cart {" "}
+    <span className="badge badge-danger m-1" style={{"backgroundColor":"red"}}>{data.length}</span></Link></div>{cartView?<Modal onClose={()=>setCartView(false)}><Cart/></Modal> :"null"}
     
-    <Link onClick={handleLogout}className='btn btn-success mx-2'to='/signup' role="button">Logout</Link>
+   <div> <Link onClick={handleLogout}className='btn btn-success mx-2'to='/signup' role="button">Logout</Link></div>
     </div>
     
     }

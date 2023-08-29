@@ -4,6 +4,7 @@ import About from './Components/About';
 import { CartProvider } from './Components/ContextReducer';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
+import Cart from './screens/Cart';
 import Home from './screens/Home';
 import Login from './screens/Login'
 import Signup from './screens/Signup';
@@ -25,7 +26,7 @@ function App() {
       <Route exact path="/login" element={<Login/>}/>
       <Route exact path="/signup" element={<Signup/>}/>
         </Routes>
-      
+      <Cart/>
      </Router>
     </CartProvider>
   );

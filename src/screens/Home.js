@@ -1,25 +1,33 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
-// import Carousel from "../Components/Carousel";
 import Card from "../Components/Card";
+
 const Home = () => {
-  // const [search, setSearch] = useState('');
-  const [foodCategory, setfoodCategory] = useState([]);
-  const [foodItem, setfoodItem] = useState([]);
+  const [foodCategory, setFoodCategory] = useState([]);
+  const [foodItem, setFoodItem] = useState([]);
 
   const loadData = async () => {
-    let response = await fetch("http://localhost:5000/api/foodData", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application.json",
-      },
-    });
-    response = await response.json();
-    setfoodItem(response[0]);
-    setfoodCategory(response[1]);
-    console.log(response[0],response[1]) //data
+    try {
+      const response = await fetch("http://localhost:5000/api/foodData", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application.json",
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setFoodItem(data[0]);
+        setFoodCategory(data[1]);
+      } else {
+        console.error("Failed to fetch data");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
+
   useEffect(() => {
     loadData();
   }, []);
@@ -27,6 +35,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
+      <div>
       <div>
       <div id="carouselExampleFade" className="carousel slide carousel-fade"style={{"objectFit":"contain !important"}} >
   <div className="carousel-inner">
@@ -53,41 +62,26 @@ const Home = () => {
   </button>
 </div>
     </div>
+      </div>
       <div className="container">
-        {foodCategory !== []
-          ? foodCategory.map((data) => {
-              return (
-                <div className="row mb-3">
-                  <div key={data._id} className="fs-3 m-3">
-                    {data.CategoryName}
-                  </div>
-                  <hr />
-                  {foodItem !== [] ? (
-                    foodItem
-                      .filter((item) => item.CategoryName === data.CategoryName)
-                      .map((filterItems) => {
-                        return (
-                          <div
-                            key={filterItems._id}
-                            className="col-12 col-md-6 col-lg-3"
-                          >
-                            <Card foodItem = {filterItems}
-                              // foodName={filterItems.name}
-                              options={filterItems.options}
-                              // imgSrc={filterItems.img}
-                              // description={filterItems.description}
-                            ></Card>
-                          </div>
-                        );
-                      })
-                  ) : (
-                    <div>no such data found</div>
-                  )}
-                </div>
-              );
-            })
-          : ""}
-        <Card />
+        {foodCategory.length !== 0 &&
+          foodCategory.map((category) => (
+            <div className="row mb-3" key={category._id}>
+              <div className="fs-3 m-3">{category.CategoryName}</div>
+              <hr />
+              {foodItem.length !== 0 &&
+                foodItem
+                  .filter((item) => item.CategoryName === category.CategoryName)
+                  .map((filterItems) => (
+                    <div key={filterItems._id} className="col-12 col-md-6 col-lg-3">
+                      <Card
+                        foodItem={filterItems}
+                        options={filterItems.options}
+                      />
+                    </div>
+                  ))}
+            </div>
+          ))}
       </div>
       <Footer />
     </div>
@@ -95,3 +89,126 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useEffect, useState } from "react";
+// import Navbar from "../Components/Navbar";
+// import Footer from "../Components/Footer";
+// // import Carousel from "../Components/Carousel";
+// import Card from "../Components/Card";
+// const Home = () => {
+//   // const [search, setSearch] = useState('');
+//   const [foodCategory, setfoodCategory] = useState([]);
+//   const [foodItem, setfoodItem] = useState([]);
+
+//   const loadData = async () => {
+//     let response = await fetch("http://localhost:5000/api/foodData", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application.json",
+//       },
+//     });
+//     response = await response.json();
+//     setfoodItem(response[0]);
+//     setfoodCategory(response[1]);
+//     console.log(response[0],response[1]) //data
+//   };
+//   useEffect(() => {
+//     loadData();
+//   }, []);
+
+//   return (
+//     <div>
+//       <Navbar />
+      
+//       <div className="container">
+//         {foodCategory !== []
+//           ? foodCategory.map((data) => {
+//               return (
+//                 <div className="row mb-3">
+//                   <div key={data._id} className="fs-3 m-3">
+//                     {data.CategoryName}
+//                   </div>
+//                   <hr />
+//                   {foodItem !== [] ? (
+//                     foodItem
+//                       .filter((item) => item.CategoryName === data.CategoryName)
+//                       .map((filterItems) => {
+//                         return (
+//                           <div
+//                             key={filterItems._id}
+//                             className="col-12 col-md-6 col-lg-3"
+//                           >
+//                             <Card foodItem = {filterItems}
+//                               // foodName={filterItems.name}
+//                               options={filterItems.options}
+//                               // imgSrc={filterItems.img}
+//                               // description={filterItems.description}
+//                             ></Card>
+//                           </div>
+//                         );
+//                       })
+//                   ) : (
+//                     <div>no such data found</div>
+//                   )}
+//                 </div>
+//               );
+//             })
+//           : ""}
+//         <Card />
+//       </div>
+//       <Footer />
+//     </div>
+//   );
+// };
+
+// export default Home;
