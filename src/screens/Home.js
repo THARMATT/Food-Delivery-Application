@@ -5,7 +5,7 @@ import Footer from "../Components/Footer";
 import Card from "../Components/Card";
 const Home = () => {
   // const [search, setSearch] = useState('');
-  const [foodCat, setfoodCat] = useState([]);
+  const [foodCategory, setfoodCategory] = useState([]);
   const [foodItem, setfoodItem] = useState([]);
 
   const loadData = async () => {
@@ -17,8 +17,8 @@ const Home = () => {
     });
     response = await response.json();
     setfoodItem(response[0]);
-    setfoodCat(response[1]);
-    console.log(response[0],response[1])
+    setfoodCategory(response[1]);
+    console.log(response[0],response[1]) //data
   };
   useEffect(() => {
     loadData();
@@ -54,8 +54,8 @@ const Home = () => {
 </div>
     </div>
       <div className="container">
-        {foodCat !== []
-          ? foodCat.map((data) => {
+        {foodCategory !== []
+          ? foodCategory.map((data) => {
               return (
                 <div className="row mb-3">
                   <div key={data._id} className="fs-3 m-3">

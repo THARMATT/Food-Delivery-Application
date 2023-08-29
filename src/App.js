@@ -1,6 +1,7 @@
 
 import './App.css';
 import About from './Components/About';
+import { CartProvider } from './Components/ContextReducer';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
 import Home from './screens/Home';
@@ -14,7 +15,7 @@ import {
 
 function App() {
   return (
-    <div>
+    <CartProvider>
      <Router>
 
     
@@ -26,7 +27,7 @@ function App() {
         </Routes>
       
      </Router>
-    </div>
+    </CartProvider>
   );
 }
 

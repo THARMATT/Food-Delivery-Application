@@ -1,20 +1,29 @@
 import React from 'react'
+import {useDispatchCart,useCart} from './ContextReducer'
 import { Link } from 'react-router-dom'
 const Card = (props) => {
 
-  // let options= props.option || {}; 
-  // const priceOptions=Object.keys(options)
+  const options= props.options; 
+  const priceOptions=Object.keys(options)
+  let foodItem=props.foodItems;
+const handleA
+
+  
 
 
-  const handleAddtoCart=()=>{}
+  const handleAddtoCart=()=>{
+
+
+
+  }
   return (
     <div>
       <div className="container">
         <div id="card" className="card m-4 overflow-hidden" style={{ "width": "18rem" }}>
-          <img src={props.imgSrc} alt="imgava" srcset="" style={{ "height": "12em" ,"width": "18em", objectFit:"fill"}}  className='overflow-hidden'/>
+          <img src={props.foodItem.img} alt="imgava" srcset="" style={{ "height": "12em" ,"width": "18em", objectFit:"fill"}}  className='overflow-hidden'/>
           {/* <img src="" className="card-img-top" alt="..."/> */}
           <div className="card-body">
-            <h5 className="card-title">{props.foodName}</h5>
+            <h5 className="card-title">{props.foodItem.name}</h5>
             {/* <p className="card-text">{props.
               description}</p> */}
             <div className='container w-100 p-0' style={{ height: "38px" }}>
