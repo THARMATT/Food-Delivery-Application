@@ -22,6 +22,7 @@ const Login = (props) => {
     console.log(json)
     if (json.success) {
       // redirect and sasve authauthtoken
+      localStorage.setItem('userEmail', credentials.email)
       localStorage.setItem('authtoken', json.authauthtoken)
 
       // alert("invalid credentials","danger")

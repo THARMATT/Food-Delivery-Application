@@ -8,7 +8,21 @@ switch(action.type){
     case"ADD":return[...state,{id:action.id,name:action.name,qty:action.qty,img:action.img,size:action.size,price:action.price}]
     case "REMOVE": let newArr=[...state]
     newArr.splice(action.index,1)
-    return newArr
+    return newArr;
+    case "UPDATE":
+        let arr =[...state]
+        arr.find((food,index)=>{
+            if(food.id===action.id){
+                console.log(food.qty,parseInt(action.qty),action.price+food.price)
+                arr[index]={...food,qty:parseInt(action.qty)+food.qty,price:acton.price+food.price}
+
+            }
+            return arr
+        })
+        return arr
+        case "DROP":
+            let empArray=[]
+            return empArray
     default:console.log("error is reducer")
 }
 }

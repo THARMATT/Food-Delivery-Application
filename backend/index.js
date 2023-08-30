@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
  app.use(express.json());
  app.use('/api', require ('./Routes/auth'));
  app.use('/api', require ('./Routes/foodData'));
+ app.use('/api', require ('./Routes/OrderData'));
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

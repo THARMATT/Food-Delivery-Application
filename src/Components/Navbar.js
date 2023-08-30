@@ -31,7 +31,7 @@ const Navbar = () => {
         </li>
          
         {localStorage.getItem('authtoken')?<li className="nav-item">
-          <Link className="nav-link active " aria-current="page" to="/myorders">My Orders</Link>
+          <Link className="nav-link active " aria-current="page" to="/myOrder">My Orders</Link>
         </li>:""}
       </ul>
       <div className="d-flex" role="">
@@ -43,7 +43,7 @@ const Navbar = () => {
       <Link className='btn btn-success mx-2' to="/login" role="button">Login</Link>
       <Link className='btn btn-success mx-2'to='/signup' role="button">Signup</Link>
     </div>: <div className='d-flex'>
-    <div ><Link  className='btn btn-success mx-2'to='/myorders' role="button"  onClick={()=>{setCartView(true)}}>Cart {" "}
+    <div ><Link  className='btn btn-success mx-2' role="button"  onClick={()=>{setCartView(true)}}>Cart {" "}
     <span className="badge badge-danger m-1" style={{"backgroundColor":"red"}}>{data.length}</span></Link></div>{cartView?<Modal onClose={()=>setCartView(false)}><Cart/></Modal> :"null"}
     
    <div> <Link onClick={handleLogout}className='btn btn-success mx-2'to='/signup' role="button">Logout</Link></div>
